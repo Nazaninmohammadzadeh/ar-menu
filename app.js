@@ -7,6 +7,7 @@ const UI = {
     table: 'Masa',
     ar: 'Masanda gör',
     arHint: 'Yemeği masanda görmek için bu sayfayı telefonunla aç.',
+    arTip: 'İpucu: "Masanda gör"e basmadan önce telefonu masaya doğrult.',
     arFailed: 'Bu cihazda AR açılamadı. 3D görünümü kullanabilirsin.',
     badge3d: '3D · AR',
     ingredients: 'İçindekiler',
@@ -23,6 +24,7 @@ const UI = {
     table: 'Table',
     ar: 'See it on your table',
     arHint: 'Open this page on your phone to see the dish on your table.',
+    arTip: 'Tip: point your phone at the table before tapping the button.',
     arFailed: "AR isn't available on this device. You can still use the 3D view.",
     badge3d: '3D · AR',
     ingredients: 'Ingredients',
@@ -224,10 +226,8 @@ function buildViewer(item) {
 
   // AR yoksa (masaüstü vb.) bilgi göster
   mv.addEventListener('load', () => {
-    if (!mv.canActivateAR) {
-      hint.textContent = ui('arHint');
-      hint.hidden = false;
-    }
+    hint.textContent = ui(mv.canActivateAR ? 'arTip' : 'arHint');
+    hint.hidden = false;
   });
   mv.addEventListener('ar-status', (e) => {
     if (e.detail.status === 'failed') {
