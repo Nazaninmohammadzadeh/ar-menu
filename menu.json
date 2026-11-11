@@ -74,6 +74,29 @@
       "calories": null
     },
     {
+      "id": "salca",
+      "category": "test",
+      "name": {
+        "tr": "Salça Şişesi (tarama)",
+        "en": "Tomato paste jar (scan)"
+      },
+      "description": {
+        "tr": "RealityScan ile taranan ikinci test modeli.",
+        "en": "Second test model scanned with RealityScan."
+      },
+      "price": null,
+      "image": "img/salca.webp",
+      "model": "models/salca.glb",
+      "modelIos": "models/salca.usdz",
+      "size": {
+        "tr": "Taban çapı 8 cm, yükseklik 12,9 cm",
+        "en": "8 cm base diameter, 12.9 cm tall"
+      },
+      "ingredients": null,
+      "allergens": null,
+      "calories": null
+    },
+    {
       "id": "klasik-burger",
       "category": "burgerler",
       "name": {
