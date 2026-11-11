@@ -1,0 +1,177 @@
+{
+  "restaurant": {
+    "name": "Demo Burger Evi",
+    "currency": "₺",
+    "defaultLanguage": "tr",
+    "footer": {
+      "tr": "Fiyatlar, içerik ve kalori bilgileri örnektir. Alerjen bilgisi için personelimize danışabilirsiniz.",
+      "en": "Prices, ingredients and calories are sample values. Please ask our staff about allergens."
+    }
+  },
+  "categories": [
+    {
+      "id": "test",
+      "name": {
+        "tr": "Test taramaları",
+        "en": "Test scans"
+      }
+    },
+    {
+      "id": "burgerler",
+      "name": {
+        "tr": "Burgerler",
+        "en": "Burgers"
+      }
+    },
+    {
+      "id": "yanlar",
+      "name": {
+        "tr": "Yan Ürünler",
+        "en": "Sides"
+      }
+    },
+    {
+      "id": "tatlilar",
+      "name": {
+        "tr": "Tatlılar",
+        "en": "Desserts"
+      }
+    },
+    {
+      "id": "icecekler",
+      "name": {
+        "tr": "İçecekler",
+        "en": "Drinks"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "dankek",
+      "category": "test",
+      "name": {
+        "tr": "Dankek Lokmalık (ilk tarama)",
+        "en": "Dankek bites (first scan)"
+      },
+      "description": {
+        "tr": "RealityScan ile telefonda taranan ilk model.",
+        "en": "First model scanned with RealityScan on a phone."
+      },
+      "price": null,
+      "image": "img/dankek.webp",
+      "model": "models/dankek.glb",
+      "modelIos": "models/dankek.usdz",
+      "size": {
+        "tr": "Paket: 17,8 cm yükseklik",
+        "en": "Pack: 17.8 cm tall"
+      },
+      "ingredients": null,
+      "allergens": [
+        "gluten",
+        "yumurta",
+        "sut"
+      ],
+      "calories": null
+    },
+    {
+      "id": "klasik-burger",
+      "category": "burgerler",
+      "name": {
+        "tr": "Klasik Burger",
+        "en": "Classic Burger"
+      },
+      "description": {
+        "tr": "150 g dana köfte, cheddar, domates ve marul; susamlı ekmekte.",
+        "en": "150 g beef patty, cheddar, tomato and lettuce on a sesame bun."
+      },
+      "price": 420,
+      "image": "img/klasik-burger.webp",
+      "model": "models/burger.glb",
+      "modelIos": "models/burger.usdz",
+      "size": {
+        "tr": "26 cm tabakta servis edilir",
+        "en": "Served on a 26 cm plate"
+      },
+      "ingredients": {
+        "tr": "Dana kıyma, cheddar peyniri, domates, marul, susamlı burger ekmeği, tuz, karabiber",
+        "en": "Ground beef, cheddar cheese, tomato, lettuce, sesame burger bun, salt, black pepper"
+      },
+      "allergens": [
+        "gluten",
+        "sut",
+        "yumurta",
+        "susam"
+      ],
+      "calories": 780
+    },
+    {
+      "id": "patates",
+      "category": "yanlar",
+      "name": {
+        "tr": "Patates Kızartması",
+        "en": "French Fries"
+      },
+      "description": {
+        "tr": "Çıtır, deniz tuzlu.",
+        "en": "Crispy, with sea salt."
+      },
+      "price": 140,
+      "image": null,
+      "model": null,
+      "ingredients": {
+        "tr": "Patates, ayçiçek yağı, deniz tuzu",
+        "en": "Potato, sunflower oil, sea salt"
+      },
+      "allergens": [],
+      "calories": 365
+    },
+    {
+      "id": "kunefe",
+      "category": "tatlilar",
+      "name": {
+        "tr": "Künefe",
+        "en": "Künefe"
+      },
+      "description": {
+        "tr": "Hatay peyniri ve kadayıf, sıcak şerbet ve antep fıstığı ile.",
+        "en": "Shredded pastry with melted cheese, warm syrup and pistachio."
+      },
+      "price": 260,
+      "image": null,
+      "model": null,
+      "ingredients": {
+        "tr": "Tel kadayıf, künefe peyniri, tereyağı, şeker, su, antep fıstığı",
+        "en": "Shredded pastry, künefe cheese, butter, sugar, water, pistachio"
+      },
+      "allergens": [
+        "gluten",
+        "sut",
+        "kabuklu_yemis"
+      ],
+      "calories": 650
+    },
+    {
+      "id": "ayran",
+      "category": "icecekler",
+      "name": {
+        "tr": "Ayran",
+        "en": "Ayran (yogurt drink)"
+      },
+      "description": {
+        "tr": "250 ml, köpüklü.",
+        "en": "250 ml, frothy."
+      },
+      "price": 60,
+      "image": null,
+      "model": null,
+      "ingredients": {
+        "tr": "Yoğurt, su, tuz",
+        "en": "Yogurt, water, salt"
+      },
+      "allergens": [
+        "sut"
+      ],
+      "calories": 90
+    }
+  ]
+}

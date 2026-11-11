@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Kapak görseli üretici</title>
+  <script type="module" src="../vendor/model-viewer.min.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 24px; background: #fbf6ee; color: #2a211b; }
+    .grid { display: flex; flex-wrap: wrap; gap: 16px; }
+    .item { background: #fff; border-radius: 12px; padding: 12px; width: 340px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    model-viewer { width: 316px; height: 316px; background: #f4ece0; border-radius: 8px; }
+    a.dl { display: inline-block; margin-top: 8px; padding: 8px 14px; background: #c8462c; color: #fff; border-radius: 999px; text-decoration: none; font-weight: 600; }
+    code { background: #f3ebdf; padding: 1px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Kapak görseli üretici</h1>
+  <p>Menüdeki her 3D yemek için kare bir kapak görseli (<code>.webp</code>) üretir. Açıyı fareyle çevirip ayarla,
+     sonra <b>İndir</b>'e bas. Dosyayı <code>img/</code> klasörüne koy ve <code>menu.json</code> içinde yemeğin
+     <code>"image"</code> alanına yaz (ör. <code>"img/klasik-burger.webp"</code>).</p>
+  <p>Bu sayfayı <code>npm run serve</code> ile açtığın sitede <code>/tools/poster.html</code> adresinden aç.</p>
+  <div id="grid" class="grid"></div>
+
+  <script type="module">
+    const menu = await (await fetch('../menu.json', { cache: 'no-cache' })).json();
+    const grid = document.getElementById('grid');
+    const name = (v) => (typeof v === 'string' ? v : v?.tr ?? '');
+    for (const item of menu.items.filter((i) => i.model)) {
+      const box = document.createElement('div');
+      box.className = 'item';
+      const title = document.createElement('h3');
+      title.textContent = name(item.name);
+      const mv = document.createElement('model-viewer');
+      mv.src = '../' + item.model;
+      mv.setAttribute('camera-controls', '');
+      mv.setAttribute('camera-orbit', '30deg 60deg auto');
+      mv.setAttribute('shadow-intensity', '1');
+      mv.setAttribute('environment-image', 'neutral');
+      mv.setAttribute('exposure', '1.05');
+      mv.setAttribute('interaction-prompt', 'none');
+      const a = document.createElement('a');
+      a.className = 'dl';
+      a.textContent = 'İndir';
+      a.href = '#';
+      a.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const blob = await mv.toBlob({ mimeType: 'image/webp', qualityArgument: 0.9 });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `${item.id}.webp`;
+        link.click();
+      });
+      box.append(title, mv, a);
+      grid.append(box);
+    }
+    if (!grid.children.length) grid.textContent = 'menu.json içinde "model" alanı dolu yemek yok.';
+  </script>
+</body>
+</html>

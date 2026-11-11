@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf6ee">
+  <title>Menü</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <!-- 3D/AR görüntüleyici (Google model-viewer), yerel kopya -->
+  <script type="module" src="vendor/model-viewer.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="top-row">
+      <div>
+        <h1 id="restaurant-name">…</h1>
+        <div id="table-badge" class="table-badge" hidden></div>
+      </div>
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Dil / Language">EN</button>
+    </div>
+    <nav id="category-nav" class="category-nav" aria-label="Kategoriler"></nav>
+  </header>
+
+  <main id="menu" class="menu" aria-live="polite">
+    <p class="loading">Menü yükleniyor…</p>
+  </main>
+
+  <footer id="footer" class="footer"></footer>
+
+  <!-- Yemek detayı -->
+  <dialog id="sheet" class="sheet" aria-labelledby="sheet-title">
+    <div class="sheet-inner">
+      <button class="sheet-close" type="button" data-close aria-label="Kapat">✕</button>
+      <div id="sheet-media" class="sheet-media"></div>
+      <div class="sheet-body">
+        <div class="sheet-head">
+          <h2 id="sheet-title"></h2>
+          <div id="sheet-price" class="price"></div>
+        </div>
+        <p id="sheet-desc" class="desc"></p>
+        <p id="sheet-size" class="size" hidden></p>
+        <dl class="facts">
+          <div id="fact-ingredients"><dt data-i18n="ingredients"></dt><dd></dd></div>
+          <div id="fact-allergens"><dt data-i18n="allergens"></dt><dd></dd></div>
+          <div id="fact-calories"><dt data-i18n="calories"></dt><dd></dd></div>
+        </dl>
+      </div>
+    </div>
+  </dialog>
+
+  <template id="tpl-viewer">
+    <model-viewer
+      class="viewer"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      ar-scale="fixed"
+      camera-controls
+      touch-action="pan-y"
+      auto-rotate
+      auto-rotate-delay="1500"
+      rotation-per-second="20deg"
+      camera-orbit="30deg 65deg auto"
+      shadow-intensity="1"
+      shadow-softness="0.8"
+      environment-image="neutral"
+      exposure="1.05"
+      loading="eager">
+      <button slot="ar-button" class="ar-button" type="button"></button>
+      <div slot="progress-bar" class="progress"><div class="progress-fill"></div></div>
+    </model-viewer>
+  </template>
+</body>
+</html>
